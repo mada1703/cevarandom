@@ -1,6 +1,8 @@
 package pages.RegisterPage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
@@ -31,16 +33,20 @@ public class RegisterPage extends BasePage {
     private By Languages = By.id("msdd");
     private By Skills = By.id("Skills");
     private By Countries = By.id("countries");
-    private By Selectcountry = By.xpath("//span [@role='combobox' ]");
+    private By Selectcountry = By.xpath("//span[@role='combobox' ]");
+    private By inputCountry = By.xpath("//input[@role='textbox']");
     private By Year = By.id("yearbox");
     private By Month = By.xpath("//select[@placeholder ='Month' ]");
-    private By Day = By.id("Day");
+    private By Day = By.id("Daybox");
     private By Password = By.id("firstpassword");
     private By Confirmpassword = By.id("secondpassword");
     private By Submit = By.id("submitbtn");
     private By Refresh = By.id("Button1");
 
     String selectLanguage = "//a[contains(text(), '%s')]";
+
+
+
 
     private RegisterPage() {
 
@@ -59,10 +65,10 @@ public class RegisterPage extends BasePage {
         return driver.findElement(title).isDisplayed();
     }
 
-    public boolean isTitle2Displayed() {
-        LOG.info("Verify if title 2 is displayed");
-        return driver.findElement(title2).isDisplayed();
-    }
+//    public boolean isTitle2Displayed() {
+//        LOG.info("Verify if title 2 is displayed");
+//        return driver.findElement(title2).isDisplayed();
+//    }
 
     public boolean isFirstNamefielddisplayed() {
         LOG.info("Verify if First Name field is displayed");
@@ -124,6 +130,11 @@ public class RegisterPage extends BasePage {
         return driver.findElement(Male).isDisplayed();
     }
 
+    public void clickMalebutton() {
+        LOG.info("click Male button");
+        driver.findElement(clickMale).click();
+    }
+
     public boolean isFemalecheckmarkdisplayed() {
         LOG.info("Verify if Female checkmark is displayed");
         return driver.findElement(Female).isDisplayed();
@@ -154,7 +165,7 @@ public class RegisterPage extends BasePage {
 
     }
 
-    public void selectLanguage(String language){
+    public void selectLanguage(String language) {
         LOG.info("Select language");
         driver.findElement(Languages).click();
         driver.findElement(By.xpath(String.format(selectLanguage, language))).click();
@@ -164,6 +175,12 @@ public class RegisterPage extends BasePage {
         LOG.info("Verify if Skills dropdown is displayed");
         return driver.findElement(Skills).isDisplayed();
 
+    }
+//alegerea unei valori de la inspect skills select>option value
+    public void selectSkills(String selectSkills) {
+        LOG.info ("Select skills");
+        Select newSkill = new Select (driver.findElement(Skills));
+        newSkill.selectByValue(selectSkills);//select skills e acelasi cu cel scris de la linia 179
     }
 
     public boolean isCountriesdropdowndisplayed() {
@@ -178,6 +195,14 @@ public class RegisterPage extends BasePage {
 
     }
 
+    public void selectCountry(String country) {
+        LOG.info("Select country");
+        driver.findElement(Selectcountry).click();
+        driver.findElement(inputCountry).sendKeys(country);
+        driver.findElement(inputCountry).sendKeys(Keys.ENTER);
+
+    }
+
     public boolean isYeardropdowndisplayed() {
         LOG.info("Verify if Year dropdown is displayed");
         return driver.findElement(Year).isDisplayed();
@@ -187,12 +212,6 @@ public class RegisterPage extends BasePage {
     public boolean isMonthdropdowndisplayed() {
         LOG.info("Verify if Month dropdown is displayed");
         return driver.findElement(Month).isDisplayed();
-
-    }
-
-    public boolean isDaydropdowndisplayed() {
-        LOG.info("Verify if Day dropdown is displayed");
-        return driver.findElement(Day).isDisplayed();
 
     }
 

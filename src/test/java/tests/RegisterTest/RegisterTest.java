@@ -23,12 +23,14 @@ public class RegisterTest extends BaseTest {
         String email = "madalinenache91@gmail.com";
         String phone = "0728078278";
         String language = "Romanian";
+        String country = "India";
+        String skills = "Android";
 
         LOG.info("Check title");
         Assert.assertTrue(registerPage.isTitleDisplayed(), "Title is not displayed");
 
-        LOG.info("Check title2");
-        Assert.assertTrue(registerPage.isTitleDisplayed(), "Title2 is not displayed");
+//        LOG.info("Check title2");
+//        Assert.assertTrue(registerPage.isTitle2Displayed(), "Title 2 is not displayed");
 
         LOG.info("Check FirstName");
         Assert.assertTrue(registerPage.isFirstNamefielddisplayed(), "First Name field is not displayed");
@@ -61,6 +63,9 @@ public class RegisterTest extends BaseTest {
         LOG.info("Check Male");
         Assert.assertTrue(registerPage.isMalecheckmarkdisplayed(), "Male checkmark is not displayed");
 
+        LOG.info("Click Male button");
+        registerPage.clickMalebutton();
+
         LOG.info("Check Female");
         Assert.assertTrue(registerPage.isFemalecheckmarkdisplayed(), "Female checkmark is not displayed");
 
@@ -82,19 +87,22 @@ public class RegisterTest extends BaseTest {
         LOG.info("Check Skills");
         Assert.assertTrue(registerPage.isSkillsdropdowndisplayed(), "Skills dropdown is not displayed");
 
+        LOG.info("Select a Skill");
+        registerPage.selectSkills(skills);
+
         LOG.info("Check Countries");
         Assert.assertTrue(registerPage.isCountriesdropdowndisplayed(), "Countries dropdown is not displayed");
 
         LOG.info("Check Selectcountry");
         Assert.assertTrue(registerPage.isSelectcountrydropdowndisplayed(), "Select country dropdown is not displayed");
 
+        LOG.info("Select a country");
+        registerPage.selectCountry(country);
+
         LOG.info("Check Year");
         Assert.assertTrue(registerPage.isYeardropdowndisplayed(), "Year dropdown is not displayed");
 
         LOG.info("Check Month");
-        Assert.assertTrue(registerPage.isMonthdropdowndisplayed(), "Month dropdown is not displayed");
-
-        LOG.info("Check Day");
         Assert.assertTrue(registerPage.isMonthdropdowndisplayed(), "Month dropdown is not displayed");
 
         LOG.info("Check Password");
