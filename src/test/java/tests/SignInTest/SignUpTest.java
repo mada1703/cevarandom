@@ -18,9 +18,10 @@ public class SignUpTest extends BaseTest {
     public void signUp() {
         String email = "email@example.com";
         String password = "12345";
-//prima pagina
-        LOG.info("Navigate to Sign Up Page");
         driver.get(newUrl);
+//prima pagina
+        LOG.info("Verify UI elements");
+        LOG.info("Navigate to Sign Up Page");
         Assert.assertTrue(signInPage.isLogoDisplayed(), "Logo is not displayed");
         Assert.assertTrue(signInPage.isSignInButtonDisplayed(), "Sign in is not displayed");
         Assert.assertTrue(signInPage.skipSignInButtonDisplayed(), "skip Sing in is not displayed");
@@ -36,5 +37,13 @@ public class SignUpTest extends BaseTest {
 
         LOG.info("Veryfing if error message is displayed");
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), "Error message is not displayed");
+
+        LOG.info("Navigate back");
+        signInPage.clickBack();
+
+        LOG.info("Click Skip SignIn button");
+        signInPage.clickSkipSignInButton();
+
+
     }
 }

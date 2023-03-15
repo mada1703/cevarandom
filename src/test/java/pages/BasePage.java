@@ -18,6 +18,8 @@ public class BasePage {
 
         LOG.info("Open brwoser maximize");
         driver.manage().window().maximize();
+//        Dimension dimension = new Dimension(1366, 768);
+//        driver.manage().window().setSize(dimension);
     }
 
     public static void tearDown(){

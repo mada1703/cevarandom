@@ -93,6 +93,12 @@ public class SignInPage extends BasePage {
         return driver.findElement(errorMsg).isDisplayed();
     }
 
+    public void clickBack(){
+        LOG.info("Clicking back in browser");
+        driver.navigate().back();
+
+    }
+
 
 
 }
