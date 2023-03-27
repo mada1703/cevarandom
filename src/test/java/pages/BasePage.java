@@ -16,16 +16,16 @@ public class BasePage {
         String url = "https://demo.automationtesting.in/Index.html";
         driver.get(url);
 
-        LOG.info("Open brwoser maximize");
+        LOG.info("Open browser maximize");
         driver.manage().window().maximize();
 //        Dimension dimension = new Dimension(1366, 768);
 //        driver.manage().window().setSize(dimension);
     }
 
-    public static void tearDown(){
-        LOG.info("Close the browser");
-        driver.quit();
-    }
+//    public static void tearDown(){
+//        LOG.info("Close the browser");
+//        driver.quit();
+//    }
 
     public static String returnBaseUrl(){
         return "https://demo.automationtesting.in/Index.html";
@@ -38,5 +38,5 @@ public class BasePage {
         }
         return baseUrl;
     }
-    public static void Sleep
+//    public static void Sleep
 }

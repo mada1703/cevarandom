@@ -2,6 +2,7 @@ package pages.RegisterPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,11 +38,12 @@ public class RegisterPage extends BasePage {
     private By inputCountry = By.xpath("//input[@role='textbox']");
     private By Year = By.id("yearbox");
     private By Month = By.xpath("//select[@placeholder ='Month' ]");
-    private By Day = By.id("Daybox");
+    private By Day = By.id("daybox");
     private By Password = By.id("firstpassword");
     private By Confirmpassword = By.id("secondpassword");
     private By Submit = By.id("submitbtn");
     private By Refresh = By.id("Button1");
+    private By file = By.id("imagesrc");
 
     String selectLanguage = "//a[contains(text(), '%s')]";
 
@@ -209,6 +211,16 @@ public class RegisterPage extends BasePage {
 
     }
 
+    public void setDateofBirth(String year, String month, String day){
+        LOG.info("Select date of birth");
+        Select newYear = new Select(driver.findElement(Year));
+        newYear.selectByValue(year);
+        Select newMonth = new Select(driver.findElement(Month));
+        newMonth.selectByValue(month);
+        Select newDay = new Select(driver.findElement(Day));
+        newDay.selectByValue(day);
+    }
+
     public boolean isMonthdropdowndisplayed() {
         LOG.info("Verify if Month dropdown is displayed");
         return driver.findElement(Month).isDisplayed();
@@ -221,10 +233,20 @@ public class RegisterPage extends BasePage {
 
     }
 
+    public void setPassword(String firstpassword){
+        LOG.info("Set first password");
+        driver.findElement(Password).sendKeys(firstpassword);
+    }
+
     public boolean isConfirmpasswordfieldisplayed() {
         LOG.info("Verify if Confirm password field is displayed");
         return driver.findElement(Confirmpassword).isDisplayed();
 
+    }
+
+    public void setConfirmpassword(String secondpassword){
+        LOG.info("Set second password");
+        driver.findElement(Confirmpassword).sendKeys(secondpassword);
     }
 
     public boolean isSubmitbuttondisplayed() {
@@ -238,6 +260,19 @@ public class RegisterPage extends BasePage {
         return driver.findElement(Refresh).isDisplayed();
 
     }
+
+    public void selectImage(){
+        LOG.info("Choose image to upload");
+        WebElement fileChoose = driver.findElement(file);
+        fileChoose.sendKeys("C:/Users//mada1703//Desktop//javapic//Thinking-of-getting-a-cat.png");
+    }
+
+    public void clickSubmit(){
+        LOG.info("Click submit button");
+        driver.findElement(Submit).click();
+    }
+
+
 
 
 }

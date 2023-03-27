@@ -25,6 +25,11 @@ public class RegisterTest extends BaseTest {
         String language = "Romanian";
         String country = "India";
         String skills = "Android";
+        String year = "1991";
+        String month = "March";
+        String day = "17";
+        String firstpassword = "1234567890";
+        String secondpassword = "1234567890";
 
         LOG.info("Check title");
         Assert.assertTrue(registerPage.isTitleDisplayed(), "Title is not displayed");
@@ -102,20 +107,35 @@ public class RegisterTest extends BaseTest {
         LOG.info("Check Year");
         Assert.assertTrue(registerPage.isYeardropdowndisplayed(), "Year dropdown is not displayed");
 
+        LOG.info("Select date of birth");
+        registerPage.setDateofBirth(year,month,day);
+
         LOG.info("Check Month");
         Assert.assertTrue(registerPage.isMonthdropdowndisplayed(), "Month dropdown is not displayed");
 
         LOG.info("Check Password");
         Assert.assertTrue(registerPage.isPasswordfieldisplayed(), "Password field is not displayed");
 
+        LOG.info("Set new password");
+        registerPage.setPassword(firstpassword);
+
         LOG.info("Check Confirmpassword");
         Assert.assertTrue(registerPage.isConfirmpasswordfieldisplayed(), "Confirm password field is not displayed");
+
+        LOG.info("Set confirm password");
+        registerPage.setConfirmpassword(secondpassword);
 
         LOG.info("Check Submit button");
         Assert.assertTrue(registerPage.isSubmitbuttondisplayed(), "Submit button is not displayed");
 
         LOG.info("Check Refresh button");
         Assert.assertTrue(registerPage.isRefreshbuttondisplayed(), "Refresh button is not displayed");
+
+        LOG.info("Choose a picture");
+        registerPage.selectImage();
+
+        LOG.info("Click submit button");
+        registerPage.clickSubmit();
 
 
     }

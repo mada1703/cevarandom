@@ -10,10 +10,10 @@ public class SignInTest extends BaseTest {
     private static final Logger LOG = LoggerFactory.getLogger(SignInTest.class);
 
     @Test
-    public void checkIfLogoIsDisplayed(){
-        String email="grupa3@automation.com";
+    public void checkIfLogoIsDisplayed() {
+        String email = "grupa3@automation.com";
 
-        LOG.info ("Verify if Logo is displayed");
+        LOG.info("Verify if Logo is displayed");
         Assert.assertTrue(signInPage.isLogoDisplayed(), "Logo is not displayed");
 
         LOG.info("Complete the email field");
