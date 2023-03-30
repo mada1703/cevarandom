@@ -9,6 +9,10 @@
             </class>
             <class name="tests.RegisterTest.RegisterTest">
             </class>
+            <class name="tests.SwitchToTest.SwitchToAlertTest">
+            </class>
+            <class name="tests.SwitchToTest.SwitchToWindowsTest">
+            </class>
         </classes>
     </test>
 
