@@ -11,7 +11,7 @@ import static pages.BasePage.getBaseUrl;
 
 public class SwitchToAlertTest extends BaseTest {
     private String newUrl = getBaseUrl() + "Alerts.html";
-    private static final Logger LOG = LoggerFactory.getLogger(SwitchToAlertPage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SwitchToAlertTest.class);
 
     @Test
     public void checkAlerts() {

@@ -13,6 +13,8 @@
             </class>
             <class name="tests.SwitchToTest.SwitchToWindowsTest">
             </class>
+            <class name="tests.WidgetsTest.DatepickerTest">
+            </class>
         </classes>
     </test>
 
